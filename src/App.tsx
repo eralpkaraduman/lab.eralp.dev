@@ -6,16 +6,20 @@ import HomePage from "./pages/home-page";
 import OtherPage from "./pages/other-page";
 
 const App: FunctionComponent = () => (
-  <Router>
-    <Switch>
-      <Route path="/other">
-        <OtherPage />
-      </Route>
-      <Route path="/">
-        <HomePage />
-      </Route>
-    </Switch>
-  </Router>
+  <Switch>
+    <Route path="/other">
+      <OtherPage />
+    </Route>
+    <Route path="/">
+      <HomePage />
+    </Route>
+  </Switch>
 );
 
-export default App;
+export const AppWithoutRouter = App;
+
+export default () => (
+  <Router>
+    <App />
+  </Router>
+);
