@@ -21,7 +21,7 @@ const Sidebar: FunctionComponent<Props> = ({ open }) => (
   >
     <ul sx={{ listStyle: "none", p: 3, m: 0 }}>
       <SidebarLink to="/">Home</SidebarLink>
-      <SidebarLink to="/covid-python-game">Covid Python Game</SidebarLink>
+      <SidebarLink to="/brython">Brython</SidebarLink>
     </ul>
   </Sidenav>
 );

@@ -3,12 +3,12 @@ import { jsx } from "theme-ui";
 import { FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/home-page";
-import CovidPythonGame from "./pages/covid-python-game";
+import BrythonPage from "./pages/brython";
 
 const App: FunctionComponent = () => (
   <Switch>
-    <Route path="/covid-python-game">
-      <CovidPythonGame />
+    <Route path="/brython">
+      <BrythonPage />
     </Route>
     <Route path="/">
       <HomePage />

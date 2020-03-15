@@ -12,7 +12,6 @@ const ThemeUILinkVariant: FunctionComponent<ThemeUILinkVariantProps> = ({
 }) => {
   const { pathname } = useLocation();
   const styleVariant = pathname === href ? "links.navActive" : "links.nav";
-  console.log({ props });
   return (
     <ThemeUILink href={href} sx={{ variant: styleVariant }}>
       {children}
