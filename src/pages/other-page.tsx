@@ -3,9 +3,9 @@ import { jsx } from "theme-ui";
 import { FunctionComponent, Fragment } from "react";
 import { withDefaultLayout } from "../layouts/default-layout";
 
-const HomePage: FunctionComponent = () => (
+const OtherPage: FunctionComponent = () => (
   <Fragment>
-    <h1>HI</h1>
+    <h1>Other Page</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere
       interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis
@@ -35,4 +35,4 @@ const HomePage: FunctionComponent = () => (
   </Fragment>
 );
 
-export default withDefaultLayout(HomePage);
+export default withDefaultLayout(OtherPage);

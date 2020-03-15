@@ -20,10 +20,8 @@ const Sidebar: FunctionComponent<Props> = ({ open }) => (
     }}
   >
     <ul sx={{ listStyle: "none", p: 3, m: 0 }}>
-      <SidebarLink href="/">Home1</SidebarLink>
-      <SidebarLink href="/">Home2</SidebarLink>
-      <SidebarLink href="/">Home3</SidebarLink>
-      <SidebarLink href="/">Home4</SidebarLink>
+      <SidebarLink to="/">Home</SidebarLink>
+      <SidebarLink to="/other">Other</SidebarLink>
     </ul>
   </Sidenav>
 );
