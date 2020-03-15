@@ -1,7 +1,14 @@
-import React, { ReactElement } from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+import { FunctionComponent } from "react";
 import { Flex, Link } from "theme-ui";
+import MenuButton from "./menu-button";
 
-export default function Header(): ReactElement {
+type Props = {
+  onMenuButtonClick(event: React.MouseEvent<HTMLButtonElement>): void;
+};
+
+const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
   return (
     <Flex
       sx={{
@@ -13,11 +20,17 @@ export default function Header(): ReactElement {
       }}
     >
       <Flex sx={{ alignItems: "center" }}>
-        {/* MenuButton: https://github.com/system-ui/theme-ui/blob/d209d9efd1f9d11b9ea178ae010a58d7a5ca453d/packages/docs/src/components/layout.js#L72 */}
+        <MenuButton onClick={onMenuButtonClick} />
         <Link sx={{ variant: "links.nav" }} href="/">
           WEB DDD
         </Link>
       </Flex>
+
+      <Flex>
+        <Link href="https://github.com/system-ui/theme-ui">GitHub</Link>
+      </Flex>
     </Flex>
   );
-}
+};
+
+export default Header;
