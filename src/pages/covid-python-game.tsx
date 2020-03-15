@@ -3,9 +3,9 @@ import { jsx } from "theme-ui";
 import { FunctionComponent, Fragment } from "react";
 import { withDefaultLayout } from "../layouts/default-layout";
 
-const OtherPage: FunctionComponent = () => (
+const CovidPythonGame: FunctionComponent = () => (
   <Fragment>
-    <h1>Other Page</h1>
+    <h1>Covid Python</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere
       interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis
@@ -35,4 +35,4 @@ const OtherPage: FunctionComponent = () => (
   </Fragment>
 );
 
-export default withDefaultLayout(OtherPage);
+export default withDefaultLayout(CovidPythonGame);

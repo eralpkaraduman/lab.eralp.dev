@@ -21,11 +21,13 @@ const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
       <Flex sx={{ alignItems: "center" }}>
         <MenuButton onClick={onMenuButtonClick} />
         <Link sx={{ variant: "links.nav" }} href="/">
-          WEB DDD
+          LAB.ERALP.DEV
         </Link>
       </Flex>
       <Flex>
-        <Link href="https://github.com/system-ui/theme-ui">GitHub</Link>
+        <Link href="https://github.com/eralpkaraduman/lab.eralp.dev">
+          GitHub
+        </Link>
       </Flex>
     </Flex>
   );

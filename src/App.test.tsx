@@ -9,6 +9,6 @@ test("renders title", () => {
       <AppWithoutRouter />
     </MemoryRouter>
   );
-  const titleElement = getByText(/WEB DDD/i);
+  const titleElement = getByText(/lab.eralp.dev/i);
   expect(titleElement).toBeInTheDocument();
 });
