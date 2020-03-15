@@ -24,7 +24,6 @@ const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
           WEB DDD
         </Link>
       </Flex>
-
       <Flex>
         <Link href="https://github.com/system-ui/theme-ui">GitHub</Link>
       </Flex>

@@ -35,7 +35,7 @@ const MenuButton: FunctionComponent<Props> = ({ onClick, ...props }) => (
       width: 32,
       height: 32,
       p: 1,
-      m: 0,
+      mr: 2,
       border: 0,
       appearance: "none",
       ":focus": {
@@ -43,7 +43,8 @@ const MenuButton: FunctionComponent<Props> = ({ onClick, ...props }) => (
       },
       "@media screen and (min-width: 40em)": {
         display: "none"
-      }
+      },
+      cursor: "pointer"
     }}
   >
     <Burger />
