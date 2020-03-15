@@ -1,7 +1,5 @@
 import React from "react";
-import { importMDX } from "mdx.macro";
-import { withDefaultLayout } from "./layouts/default-layout";
-const HomePage = withDefaultLayout(importMDX.sync("./pages/home-page.mdx"));
+import HomePage from "./pages/home-page";
 
 function App() {
   return (

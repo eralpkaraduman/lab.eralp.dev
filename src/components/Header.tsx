@@ -15,8 +15,7 @@ const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
         height: 64,
         px: 3,
         alignItems: "center",
-        justifyContent: "space-between",
-        backgroundColor: "#000"
+        justifyContent: "space-between"
       }}
     >
       <Flex sx={{ alignItems: "center" }}>
