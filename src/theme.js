@@ -15,6 +15,14 @@ export default {
       ":hover,:focus": {
         color: "primary"
       }
+    },
+    navActive: {
+      fontWeight: "bold",
+      color: "primary",
+      textDecoration: "none",
+      ":hover,:focus": {
+        color: "inherit"
+      }
     }
   }
 };
