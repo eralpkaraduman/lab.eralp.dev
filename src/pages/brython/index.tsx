@@ -80,7 +80,23 @@ const Brython: FunctionComponent = () => {
         later from javascript.
       </p>
       <SourceCode language="python" code={pythonScript} />
-      <p>And this is how Brython is initilized from a react component</p>
+      <p>
+        And this is how Brython is initilized from a react component.
+        "useScript" is a utility that creates a script tag in document body
+      </p>
+      <SourceCode
+        language={"typescript"}
+        code={`
+useScript({ src: "/Brython-3.8.7/brython.js" });
+useScript({ src: "/Brython-3.8.7/brython_stdlib.js" });
+useScript({ text: pythonScript, type: "text/python" });
+useEffect(() => { eval(brythonInitScript) }, []);
+        `.trim()}
+      />
+      <p>
+        The evaluated "brythonInitScript" simply sets a loop to check until
+        Brython loads then initilizes it;
+      </p>
       <SourceCode language="javascript" code={brythonInitScript} />
       <p>
         Once the button is clicked we call the function added by python code
@@ -89,6 +105,13 @@ const Brython: FunctionComponent = () => {
         language="tsx"
         code={`document.brython_alert("\${alertString}")`}
       />
+      <p>
+        View the{" "}
+        <a href="https://github.com/eralpkaraduman/lab.eralp.dev/blob/master/src/pages/brython/index.tsx">
+          full source code
+        </a>{" "}
+        of this experiment
+      </p>
     </Fragment>
   );
 };
