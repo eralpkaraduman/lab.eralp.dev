@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx, Box } from "theme-ui";
+import { jsx, Box, Input, Button, Link } from "theme-ui";
 import SourceCode from "../../components/source-code";
 import {
   FunctionComponent,
@@ -10,20 +10,24 @@ import {
 } from "react";
 import { withDefaultLayout } from "../../layouts/default-layout";
 import useScript from "../../utils/use-script";
+import useEventListener from "../../utils/user-event-listener";
 
 const pythonScript = `
-from browser import alert, document
+from browser import alert, document, window
 
 def handle_alert_from_react(alertText):
 	alert(alertText)
 
 document.brython_alert = handle_alert_from_react
+
+ready_event = window.Event.new("BRYTHON_READY")
+window.dispatchEvent(ready_event)
 `.trim();
 
 const brythonInitScript = `
 var interval = setInterval(function(){
   // Waiting for brython
-  if (brython) {
+  if (!!window.brython) {
     brython()
     // Brython initilized
     clearInterval(interval)
@@ -33,9 +37,10 @@ var interval = setInterval(function(){
 
 const Brython: FunctionComponent = () => {
   const [alertString, setAlertString] = useState<string>("Hello from Python");
+  const [brythonReady, setBrythonReady] = useState<boolean>(false);
   useScript({ src: "/Brython-3.8.7/brython.js" });
-  useScript({ src: "/Brython-3.8.7/brython_stdlib.js" });
   useScript({ text: pythonScript, type: "text/python" });
+  useEventListener("BRYTHON_READY", () => setBrythonReady(true));
   useEffect(() => {
     // eslint-disable-next-line no-eval
     eval(brythonInitScript);
@@ -49,31 +54,39 @@ const Brython: FunctionComponent = () => {
     <Fragment>
       <h1>Brython</h1>
       <p>
-        Demo of <a href="https://brython.info/">Brython</a> the Python 3
+        Demo of <Link href="https://brython.info/">Brython</Link> the Python 3
         implementation for client-side web programming. Try changing the text
         below and clicking the button. You should see an alert with the entered
         text.
       </p>
+
       <Box>
-        <form
-          onSubmit={handleOnSubmit}
-          css={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          <input
-            sx={{ mr: 2 }}
-            type="text"
-            name="name"
-            value={alertString}
-            onChange={e => setAlertString(e.target.value)}
-          />
-          <input type="submit" value="Run Python" />
-        </form>
+        {(brythonReady && (
+          <form
+            onSubmit={handleOnSubmit}
+            css={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            <Input
+              sx={{ mr: 2 }}
+              type="text"
+              name="name"
+              value={alertString}
+              onChange={e => setAlertString(e.target.value)}
+            />
+            <Button disabled={!brythonReady} type="submit">
+              Run Python
+            </Button>
+          </form>
+        )) || (
+          <p sx={{ color: "primary" }}>Python Runtime Is Getting Ready...</p>
+        )}
       </Box>
+
       <p>
         This is the python code that gets injected into document in a script
         tag. Note that we add a function to the document. We will call this
@@ -88,9 +101,12 @@ const Brython: FunctionComponent = () => {
         language={"typescript"}
         code={`
 useScript({ src: "/Brython-3.8.7/brython.js" });
-useScript({ src: "/Brython-3.8.7/brython_stdlib.js" });
 useScript({ text: pythonScript, type: "text/python" });
-useEffect(() => { eval(brythonInitScript) }, []);
+useEventListener("BRYTHON_READY", () => setBrythonReady(true));
+useEffect(() => {
+  // eslint-disable-next-line no-eval
+  eval(brythonInitScript);
+}, []);
         `.trim()}
       />
       <p>
@@ -99,7 +115,10 @@ useEffect(() => { eval(brythonInitScript) }, []);
       </p>
       <SourceCode language="javascript" code={brythonInitScript} />
       <p>
-        Once the button is clicked we call the function added by python code
+        When python code runs, it dispatches BRYTHON_READY event to let the
+        react know. Then the input and button is rendered. Once the button is
+        clicked we call the function added by python code. Python takes the text
+        we put as an argument, uses it to the trigger the alert.
       </p>
       <SourceCode
         language="tsx"
@@ -107,9 +126,9 @@ useEffect(() => { eval(brythonInitScript) }, []);
       />
       <p>
         View the{" "}
-        <a href="https://github.com/eralpkaraduman/lab.eralp.dev/blob/master/src/pages/brython/index.tsx">
+        <Link href="https://github.com/eralpkaraduman/lab.eralp.dev/blob/master/src/pages/brython/index.tsx">
           full source code
-        </a>{" "}
+        </Link>{" "}
         of this experiment
       </p>
     </Fragment>
