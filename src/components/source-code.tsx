@@ -31,7 +31,8 @@ const SourceCode: FunctionComponent<Props> = ({
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
             css={{
-              overflow: "scroll",
+              overflowX: "auto",
+              overflowY: "hidden",
               textAlign: "left",
               margin: "1em 0",
               padding: "0.5em",
