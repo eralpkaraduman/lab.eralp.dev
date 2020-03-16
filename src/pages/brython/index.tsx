@@ -1,3 +1,4 @@
+/* eslint-disable no-eval */
 /** @jsx jsx */
 import { jsx, Box, Input, Button, Link } from "theme-ui";
 import SourceCode from "../../components/source-code";
@@ -41,13 +42,9 @@ const Brython: FunctionComponent = () => {
   useScript({ src: "/Brython-3.8.7/brython.js" });
   useScript({ text: pythonScript, type: "text/python" });
   useEventListener("BRYTHON_READY", () => setBrythonReady(true));
-  useEffect(() => {
-    // eslint-disable-next-line no-eval
-    eval(brythonInitScript);
-  }, []);
+  useEffect(() => eval(brythonInitScript), []);
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    // eslint-disable-next-line no-eval
     eval(`document.brython_alert("${alertString}")`);
   };
   return (
@@ -103,10 +100,7 @@ const Brython: FunctionComponent = () => {
 useScript({ src: "/Brython-3.8.7/brython.js" });
 useScript({ text: pythonScript, type: "text/python" });
 useEventListener("BRYTHON_READY", () => setBrythonReady(true));
-useEffect(() => {
-  // eslint-disable-next-line no-eval
-  eval(brythonInitScript);
-}, []);
+useEffect(() => eval(brythonInitScript), []);
         `.trim()}
       />
       <p>
