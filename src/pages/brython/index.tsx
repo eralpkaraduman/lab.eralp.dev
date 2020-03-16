@@ -53,7 +53,7 @@ const Brython: FunctionComponent = () => {
         the text below and clicking the button. You should see an alert with the
         entered text.
       </p>
-      <Box sx={{ width: 200 }}>
+      <Box>
         <form
           onSubmit={handleOnSubmit}
           css={{
