@@ -49,9 +49,10 @@ const Brython: FunctionComponent = () => {
     <Fragment>
       <h1>Brython</h1>
       <p>
-        Demo of the python runtime Brython compiled to javascript. Try changing
-        the text below and clicking the button. You should see an alert with the
-        entered text.
+        Demo of <a href="https://brython.info/">Brython</a> the Python 3
+        implementation for client-side web programming. Try changing the text
+        below and clicking the button. You should see an alert with the entered
+        text.
       </p>
       <Box>
         <form
