@@ -21,7 +21,7 @@ const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
       <Flex sx={{ alignItems: "center" }}>
         <MenuButton onClick={onMenuButtonClick} />
         <Link sx={{ variant: "links.nav" }} href="/">
-          LAB.ERALP.DEV
+          lab.eralp.dev
         </Link>
       </Flex>
       <Flex>
