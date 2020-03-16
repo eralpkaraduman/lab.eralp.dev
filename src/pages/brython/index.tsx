@@ -16,8 +16,8 @@ import useEventListener from "../../utils/user-event-listener";
 const pythonScript = `
 from browser import alert, document, window
 
-def handle_alert_from_react(alertText):
-	alert(alertText)
+def handle_alert_from_react(encodedAlert):
+	alert(window.decodeURIComponent(encodedAlert))
 
 document.brython_alert = handle_alert_from_react
 
@@ -40,12 +40,13 @@ const Brython: FunctionComponent = () => {
   const [alertString, setAlertString] = useState<string>("Hello from Python");
   const [brythonReady, setBrythonReady] = useState<boolean>(false);
   useScript({ src: "/Brython-3.8.7/brython.js" });
+  useScript({ src: "/Brython-3.8.7/brython_stdlib.js" });
   useScript({ text: pythonScript, type: "text/python" });
   useEventListener("BRYTHON_READY", () => setBrythonReady(true));
   useEffect(() => eval(brythonInitScript), []);
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
-    eval(`document.brython_alert("${alertString}")`);
+    eval(`document.brython_alert("${encodeURIComponent(alertString)}")`);
   };
   return (
     <Fragment>
@@ -115,7 +116,7 @@ useEffect(() => eval(brythonInitScript), []);
       </p>
       <SourceCode
         language="tsx"
-        code={`document.brython_alert("\${alertString}")`}
+        code={`document.brython_alert("\${encodeURIComponent(alertString)}")`}
       />
       <p>
         View the{" "}
