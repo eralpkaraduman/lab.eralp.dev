@@ -16,7 +16,12 @@ const SourceCode: FunctionComponent<Props> = ({
   lineNumbersEnabled
 }) => {
   return (
-    <div css={{ fontFamily: "sans-serif", textAlign: "center" }}>
+    <div
+      css={{
+        fontFamily: "sans-serif",
+        textAlign: "center"
+      }}
+    >
       <Highlight
         {...defaultProps}
         code={code}
@@ -26,6 +31,7 @@ const SourceCode: FunctionComponent<Props> = ({
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
             css={{
+              overflow: "scroll",
               textAlign: "left",
               margin: "1em 0",
               padding: "0.5em",
