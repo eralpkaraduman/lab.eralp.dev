@@ -18,10 +18,10 @@ export default {
     },
     navActive: {
       fontWeight: "bold",
-      color: "primary",
+      color: "purple",
       textDecoration: "none",
       ":hover,:focus": {
-        color: "inherit"
+        color: "primary"
       }
     }
   }
