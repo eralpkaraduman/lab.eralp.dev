@@ -60,6 +60,7 @@ const Brython: FunctionComponent = () => {
       <Box>
         {(brythonReady && (
           <form
+            sx={{ height: 42 }}
             onSubmit={handleOnSubmit}
             css={{
               display: "flex",
@@ -75,9 +76,7 @@ const Brython: FunctionComponent = () => {
               value={alertString}
               onChange={e => setAlertString(e.target.value)}
             />
-            <Button disabled={!brythonReady} type="submit">
-              Run Python
-            </Button>
+            <Button type="submit">Run</Button>
           </form>
         )) || (
           <p sx={{ color: "primary" }}>Python Runtime Is Getting Ready...</p>
