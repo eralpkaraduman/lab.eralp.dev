@@ -9,7 +9,6 @@ import {
   useState,
   FormEvent
 } from "react";
-import { withDefaultLayout } from "../../layouts/default-layout";
 import useScript from "../../utils/use-script";
 import useEventListener from "../../utils/user-event-listener";
 
@@ -129,4 +128,4 @@ useEffect(() => eval(brythonInitScript), []);
   );
 };
 
-export default withDefaultLayout(Brython);
+export default Brython;

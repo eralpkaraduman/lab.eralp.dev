@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { FunctionComponent, Fragment } from "react";
-import { withDefaultLayout } from "../layouts/default-layout";
 
 const HomePage: FunctionComponent = () => (
   <Fragment>
@@ -10,4 +9,4 @@ const HomePage: FunctionComponent = () => (
   </Fragment>
 );
 
-export default withDefaultLayout(HomePage);
+export default HomePage;

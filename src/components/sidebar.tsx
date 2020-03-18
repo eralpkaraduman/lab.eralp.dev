@@ -8,7 +8,6 @@ type Props = { open: boolean };
 
 const Sidebar: FunctionComponent<Props> = ({ open }) => (
   <Sidenav
-    pathname={"/"}
     open={open}
     sx={{
       display: [null, "block"],

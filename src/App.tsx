@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/home-page";
 import BrythonPage from "./pages/brython";
 import VirusPage from "./pages/virus";
+import DefaultLayout from "./layouts/default-layout";
 
 const App: FunctionComponent = () => (
   <Switch>
@@ -24,6 +25,8 @@ export const AppWithoutRouter = App;
 
 export default () => (
   <Router>
-    <App />
+    <DefaultLayout>
+      <App />
+    </DefaultLayout>
   </Router>
 );

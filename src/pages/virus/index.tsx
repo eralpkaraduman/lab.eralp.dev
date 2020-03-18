@@ -2,7 +2,6 @@
 import { jsx } from "theme-ui";
 
 import { FunctionComponent, Fragment } from "react";
-import { withDefaultLayout } from "../../layouts/default-layout";
 
 const Virus: FunctionComponent = () => {
   return (
@@ -12,4 +11,4 @@ const Virus: FunctionComponent = () => {
   );
 };
 
-export default withDefaultLayout(Virus);
+export default Virus;
