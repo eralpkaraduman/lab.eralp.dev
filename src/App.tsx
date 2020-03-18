@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { FunctionComponent } from "react";
+import React, { FunctionComponent, Suspense } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import HomePage from "./pages/home-page";
-import BrythonPage from "./pages/brython";
-import VirusPage from "./pages/virus";
-import DefaultLayout from "./layouts/default-layout";
+import Layout from "./layouts/default-layout";
+
+const HomePage = React.lazy(() => import("./pages/home"));
+const BrythonPage = React.lazy(() => import("./pages/brython"));
+const VirusPage = React.lazy(() => import("./pages/virus"));
 
 const App: FunctionComponent = () => (
   <Switch>
@@ -25,8 +26,10 @@ export const AppWithoutRouter = App;
 
 export default () => (
   <Router>
-    <DefaultLayout>
-      <App />
-    </DefaultLayout>
+    <Layout>
+      <Suspense fallback={<p>Loading...</p>}>
+        <App />
+      </Suspense>
+    </Layout>
   </Router>
 );
