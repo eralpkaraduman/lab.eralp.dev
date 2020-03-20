@@ -3,6 +3,7 @@ import { jsx } from "theme-ui";
 import { FunctionComponent } from "react";
 import { Flex, Link } from "theme-ui";
 import MenuButton from "./menu-button";
+import Paths from "../paths";
 
 type Props = {
   onMenuButtonClick(event: React.MouseEvent<HTMLButtonElement>): void;
@@ -20,7 +21,7 @@ const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
     >
       <Flex sx={{ alignItems: "center" }}>
         <MenuButton onClick={onMenuButtonClick} />
-        <Link sx={{ variant: "links.nav" }} href="/">
+        <Link sx={{ variant: "links.nav" }} href={Paths.home}>
           lab.eralp.dev
         </Link>
       </Flex>
