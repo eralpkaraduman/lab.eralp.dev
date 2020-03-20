@@ -19,8 +19,8 @@ const Sidebar: FunctionComponent<Props> = ({ open }) => (
     }}
   >
     <ul sx={{ listStyle: "none", p: 3, m: 0 }}>
-      <SidebarLink to="/">Home</SidebarLink>
       <SidebarLink to="/brython">Brython</SidebarLink>
+      <SidebarLink to="/box">Box</SidebarLink>
     </ul>
   </Sidenav>
 );
