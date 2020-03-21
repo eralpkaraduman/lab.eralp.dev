@@ -14,6 +14,17 @@ const BoxMeshSource = raw(boxMeshSourcePath);
 
 const BoxPage: FunctionComponent = () => (
   <Fragment>
+    <h1>Box</h1>
+    <p>
+      You should see a 3D cube rotating animation below. This is ruinning on
+      WebGL through{" "}
+      <Link href="https://github.com/react-spring/react-three-fiber">
+        react-three-fiber
+      </Link>
+      . Which is a is a <Link href="https://reactjs.org">React</Link> reconciler
+      for <Link href="https://threejs.org">Threejs</Link> on the web and
+      react-native.
+    </p>
     <ExperimentFrame width={200} height={200}>
       <BoxCanvas />
     </ExperimentFrame>
