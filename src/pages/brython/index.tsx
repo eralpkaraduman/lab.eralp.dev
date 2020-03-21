@@ -1,7 +1,7 @@
 /* eslint-disable no-eval */
 /** @jsx jsx */
 import { jsx, Box, Input, Button, Link } from "theme-ui";
-
+import raw from "raw.macro";
 import SourceCode from "../../components/source-code";
 import {
   FunctionComponent,
@@ -14,28 +14,9 @@ import useScript from "../../utils/use-script";
 import useEventListener from "../../utils/user-event-listener";
 import githubSourceUrl from "../../file-github-source-url.macro";
 
-const pythonScript = `
-from browser import alert, document, window
-
-def handle_alert_from_react(encodedAlert):
-	alert(window.decodeURIComponent(encodedAlert))
-
-document.brython_alert = handle_alert_from_react
-
-ready_event = window.Event.new("BRYTHON_READY")
-window.dispatchEvent(ready_event)
-`.trim();
-
-const brythonInitScript = `
-var interval = setInterval(function(){
-  // Waiting for brython
-  if (!!window.brython) {
-    brython()
-    // Brython initilized
-    clearInterval(interval)
-  }
-}, 200);
-`.trim();
+const pythonScript = raw("./script.py");
+const brythonInitScript = raw("./bythonInit.js");
+const currentFileSource = raw("./index.tsx");
 
 const Brython: FunctionComponent = () => {
   const [alertString, setAlertString] = useState<string>("Hello from Python");
@@ -97,12 +78,9 @@ const Brython: FunctionComponent = () => {
       </p>
       <SourceCode
         language={"typescript"}
-        code={`
-useScript({ src: "/Brython-3.8.7/brython.js" });
-useScript({ text: pythonScript, type: "text/python" });
-useEventListener("BRYTHON_READY", () => setBrythonReady(true));
-useEffect(() => eval(brythonInitScript), []);
-        `.trim()}
+        code={currentFileSource}
+        lineNumbersEnabled
+        lineRange={[24, 27]}
       />
       <p>
         The evaluated "brythonInitScript" simply sets a loop to check until
