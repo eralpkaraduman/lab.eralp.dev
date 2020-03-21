@@ -94,8 +94,10 @@ const Brython: FunctionComponent = () => {
         we put as an argument, uses it to the trigger the alert.
       </p>
       <SourceCode
-        language="tsx"
-        code={`document.brython_alert("\${encodeURIComponent(alertString)}")`}
+        language={"tsx"}
+        code={currentFileSource}
+        lineNumbersEnabled
+        lineRange={[29, 32]}
       />
       <p>
         Here's the <Link href={githubSourceUrl}>full source code</Link> of this
