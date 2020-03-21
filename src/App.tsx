@@ -12,7 +12,7 @@ const VirusPage = React.lazy(() => import("./pages/virus"));
 
 const App: FunctionComponent = () => (
   <Layout>
-    <Suspense fallback={<p>Loading...</p>}>
+    <Suspense fallback={<h1>Loading...</h1>}>
       <Switch>
         <Route path={Paths.brython}>
           <BrythonPage />
