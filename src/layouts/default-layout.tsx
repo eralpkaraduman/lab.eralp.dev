@@ -37,7 +37,8 @@ const DefaultLayout: FunctionComponent<Props> = ({ children }) => {
               minWidth: 0,
               maxWidth: 768,
               mx: "auto",
-              px: 3
+              px: 3,
+              pb: 50
             }}
           >
             {children}
