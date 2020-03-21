@@ -1,6 +1,7 @@
 /* eslint-disable no-eval */
 /** @jsx jsx */
 import { jsx, Box, Input, Button, Link } from "theme-ui";
+
 import SourceCode from "../../components/source-code";
 import {
   FunctionComponent,
@@ -11,6 +12,7 @@ import {
 } from "react";
 import useScript from "../../utils/use-script";
 import useEventListener from "../../utils/user-event-listener";
+import githubSourceUrl from "../../file-github-source-url.macro";
 
 const pythonScript = `
 from browser import alert, document, window
@@ -118,11 +120,8 @@ useEffect(() => eval(brythonInitScript), []);
         code={`document.brython_alert("\${encodeURIComponent(alertString)}")`}
       />
       <p>
-        View the{" "}
-        <Link href="https://github.com/eralpkaraduman/lab.eralp.dev/blob/master/src/pages/brython/index.tsx">
-          full source code
-        </Link>{" "}
-        of this experiment
+        Here's the <Link href={githubSourceUrl}>full source code</Link> of this
+        experiment
       </p>
     </Fragment>
   );

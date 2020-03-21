@@ -4,6 +4,7 @@ import { FunctionComponent } from "react";
 import { Flex, Link } from "theme-ui";
 import MenuButton from "./menu-button";
 import Paths from "../paths";
+import { GITHUB_URL } from "../constants";
 
 type Props = {
   onMenuButtonClick(event: React.MouseEvent<HTMLButtonElement>): void;
@@ -26,9 +27,7 @@ const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
         </Link>
       </Flex>
       <Flex>
-        <Link href="https://github.com/eralpkaraduman/lab.eralp.dev">
-          GitHub
-        </Link>
+        <Link href={GITHUB_URL}>GitHub</Link>
       </Flex>
     </Flex>
   );
