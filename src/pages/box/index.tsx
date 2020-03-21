@@ -9,7 +9,7 @@ import githubSourceUrl from "../../file-github-source-url.macro";
 
 const boxCanvasSourcePath = "./box-canvas.tsx";
 const BoxCanvasSource = raw(boxCanvasSourcePath);
-const boxMeshSourcePath = "./box-canvas.tsx";
+const boxMeshSourcePath = "./box-mesh.tsx";
 const BoxMeshSource = raw(boxMeshSourcePath);
 
 const BoxPage: FunctionComponent = () => (
