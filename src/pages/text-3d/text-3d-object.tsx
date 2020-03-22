@@ -1,4 +1,4 @@
-import React, { useMemo, forwardRef, useRef, FunctionComponent } from "react";
+import React, { useMemo, useRef, FunctionComponent } from "react";
 import { useUpdate, useFrame } from "react-three-fiber";
 import * as THREE from "three";
 import { Vector3 } from "three";

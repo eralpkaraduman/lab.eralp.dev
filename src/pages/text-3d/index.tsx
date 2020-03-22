@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx, Link } from "theme-ui";
-import { FunctionComponent, Fragment, useEffect, useReducer } from "react";
+import { FunctionComponent, Fragment } from "react";
 import ExperimentFrame from "../../components/experiment-frame";
 import Text3DCanvas from "./text-3d-canvas";
 
