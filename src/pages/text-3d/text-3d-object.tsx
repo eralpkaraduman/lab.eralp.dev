@@ -1,8 +1,6 @@
 import React, { FunctionComponent, useRef, useMemo } from "react";
-import { useLoader, useUpdate, useFrame } from "react-three-fiber";
+import { useUpdate, useFrame } from "react-three-fiber";
 import * as THREE from "three";
-
-const fontUrl = "/fonts/bold.blob";
 
 type Props = {
   position: THREE.Vector3;
@@ -12,6 +10,7 @@ type Props = {
   size: number;
   height: number;
   color: THREE.Color;
+  font: THREE.Font;
 };
 
 const Text3DCanvas: FunctionComponent<Props> = ({
@@ -21,13 +20,13 @@ const Text3DCanvas: FunctionComponent<Props> = ({
   text,
   size,
   height,
-  color
+  color,
+  font
 }) => {
   const groupRef = useRef<THREE.Group>();
   useFrame(() => {
     groupRef.current!.rotation.y += rotationFactor;
   });
-  const font = useLoader(THREE.FontLoader, fontUrl);
   const config = useMemo<THREE.TextGeometryParameters>(
     () => ({
       font,
@@ -42,17 +41,18 @@ const Text3DCanvas: FunctionComponent<Props> = ({
     }),
     [font, height, size]
   );
-  const mesh = useUpdate<THREE.Mesh>(self => {
-    const size = new THREE.Vector3();
+  const meshRef = useUpdate<THREE.Mesh>(self => {
     self.geometry.computeBoundingBox();
-    self.geometry.boundingBox.getSize(size);
-    self.position.x = -size.x / 2;
-    self.position.y = -size.y / 2;
-    self.position.z = -size.z / 2;
+    const boundingBoxSize = new THREE.Vector3();
+    self.geometry.boundingBox.getSize(boundingBoxSize);
+    // Pivot to center of the bounding box
+    self.position.x = -boundingBoxSize.x / 2;
+    self.position.y = -boundingBoxSize.y / 2;
+    self.position.z = -boundingBoxSize.z / 2;
   }, []);
   return (
     <group ref={groupRef} position={position} rotation={rotation}>
-      <mesh ref={mesh}>
+      <mesh ref={meshRef}>
         <textGeometry attach="geometry" args={[text, config]} />
         <meshStandardMaterial color={color} attach="material" />
       </mesh>
