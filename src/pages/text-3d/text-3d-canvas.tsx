@@ -1,5 +1,5 @@
 import React, { FunctionComponent, createRef, Suspense, Fragment } from "react";
-import { Canvas, useLoader, useFrame } from "react-three-fiber";
+import { Canvas, useLoader } from "react-three-fiber";
 import Text3dObject from "./text-3d-object";
 import * as THREE from "three";
 const textColor1 = new THREE.Color(0x0000ff);
@@ -29,14 +29,13 @@ const AnimatedTextGroup: FunctionComponent<TextsProps> = ({
   const text1Ref = createRef<THREE.Group>();
   const text2Ref = createRef<THREE.Group>();
   const text3Ref = createRef<THREE.Group>();
-  useFrame(() => {
-    text1Ref.current!.rotation.x += 0.04;
-    text2Ref.current!.rotation.x -= 0.02;
-    text3Ref.current!.rotation.y += 0.03;
-  });
+
   return (
     <Fragment>
       <Text3dObject
+        onUpdateFrame={() => ({
+          rotation: [0.04, -0.02]
+        })}
         ref={text1Ref}
         font={font}
         text={text1}
@@ -47,6 +46,9 @@ const AnimatedTextGroup: FunctionComponent<TextsProps> = ({
         rotation={text1IinitialRot}
       />
       <Text3dObject
+        onUpdateFrame={() => ({
+          rotation: [-0.02, 0.02]
+        })}
         ref={text2Ref}
         font={font}
         text={text2}
@@ -57,6 +59,9 @@ const AnimatedTextGroup: FunctionComponent<TextsProps> = ({
         rotation={text2IinitialRot}
       />
       <Text3dObject
+        onUpdateFrame={() => ({
+          rotation: [0, -0.03, 0.02]
+        })}
         ref={text3Ref}
         font={font}
         text={text3}
