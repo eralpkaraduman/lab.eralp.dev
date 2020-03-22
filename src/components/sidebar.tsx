@@ -28,7 +28,9 @@ const Sidebar: FunctionComponent<Props> = ({ open }) => (
   >
     <ul sx={{ listStyle: "none", p: 3, m: 0 }}>
       {links.map(link => (
-        <SidebarLink to={link.path}>{link.title}</SidebarLink>
+        <SidebarLink key={link.path} to={link.path}>
+          {link.title}
+        </SidebarLink>
       ))}
     </ul>
   </Sidenav>

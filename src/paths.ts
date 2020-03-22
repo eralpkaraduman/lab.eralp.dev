@@ -1,14 +1,10 @@
-type PathDictionary = { [pathname: string]: string };
+export const brython = "/brython";
+export const box = "/box";
+export const text3D = "/text-3d";
+export const virus = "/virus";
 
-export const SidebarPaths: PathDictionary = {
-  brython: "/brython",
-  box: "/box"
+export const SidebarPaths: { [pathName: string]: string } = {
+  brython,
+  box,
+  text3D
 };
-
-const Paths: PathDictionary = {
-  virus: "/virus",
-  home: "/",
-  ...SidebarPaths
-};
-
-export default Paths;

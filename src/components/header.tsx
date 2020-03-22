@@ -3,7 +3,6 @@ import { jsx } from "theme-ui";
 import { FunctionComponent } from "react";
 import { Flex, Link } from "theme-ui";
 import MenuButton from "./menu-button";
-import Paths from "../paths";
 import { GITHUB_URL } from "../constants";
 
 type Props = {
@@ -22,7 +21,7 @@ const Header: FunctionComponent<Props> = ({ onMenuButtonClick }) => {
     >
       <Flex sx={{ alignItems: "center" }}>
         <MenuButton onClick={onMenuButtonClick} />
-        <Link sx={{ variant: "links.nav" }} href={Paths.home}>
+        <Link sx={{ variant: "links.nav" }} href="/">
           lab.eralp.dev
         </Link>
       </Flex>
