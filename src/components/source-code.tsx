@@ -1,8 +1,12 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { FunctionComponent, Fragment } from "react";
-import Highlight, { defaultProps, Language } from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/vsDark";
+import { FunctionComponent } from "react";
+import Highlight, {
+  defaultProps,
+  Language,
+  PrismTheme
+} from "prism-react-renderer";
+import theme from "./codesandbox-black-prism-theme";
 
 type Props = {
   language: Language;
@@ -24,16 +28,19 @@ const SourceCode: FunctionComponent<Props> = ({
     lineRange ? isLineInRange(lineNumber, lineRange) : true;
   return (
     <div
+      sx={{
+        fontFamily: "monospace"
+      }}
       css={{
-        fontFamily: "sans-serif",
-        textAlign: "center"
+        textAlign: "center",
+        fontSize: 14
       }}
     >
       <Highlight
         {...defaultProps}
         code={code}
         language={language}
-        theme={theme}
+        theme={theme as PrismTheme}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <pre
@@ -43,14 +50,16 @@ const SourceCode: FunctionComponent<Props> = ({
               textAlign: "left",
               margin: "1em 0",
               padding: "0.5em",
-              lineHeight: 1.3
+              lineHeight: 1.3,
+              fontSize: "inherit",
+              fontFamily: "inherit"
             }}
             className={className}
             style={style}
           >
             {tokens.map((line, i) =>
               !shouldRenderLine(i + 1) ? (
-                <Fragment />
+                undefined
               ) : (
                 <div {...getLineProps({ line, key: i })}>
                   {lineNumbersEnabled && (

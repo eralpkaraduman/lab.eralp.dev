@@ -1,11 +1,15 @@
-import { dark as theme, roboto } from "@theme-ui/presets";
+import { dark as theme } from "@theme-ui/presets";
 export default {
   ...theme,
   colors: {
     ...theme.colors,
     background: "#121212"
   },
-  fonts: roboto.fonts,
+  fonts: {
+    body: '"JetBrains Mono", serif',
+    heading: '"JetBrains Mono", serif',
+    monospace: '"JetBrains Mono", monospace'
+  },
   links: {
     ...theme.links,
     nav: {
