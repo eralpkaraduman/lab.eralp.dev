@@ -4,7 +4,7 @@ import { ThemeProvider, Styled } from "theme-ui";
 import theme from "./theme";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import "./fonts/JetBrainsMono-Regular.ttf";
+import "./fonts/fonts.css";
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>

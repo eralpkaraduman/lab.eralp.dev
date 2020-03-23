@@ -6,9 +6,9 @@ export default {
     background: "#121212"
   },
   fonts: {
-    body: '"JetBrains Mono", serif',
-    heading: '"JetBrains Mono", serif',
-    monospace: '"JetBrains Mono", monospace'
+    body: "JetBrainsMono, sans-serif",
+    heading: "JetBrainsMono, sans-serif",
+    monospace: "JetBrainsMono, monospace, sans-serif"
   },
   links: {
     ...theme.links,
