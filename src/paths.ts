@@ -5,5 +5,6 @@ export const virus = "/virus";
 
 export const SidebarPaths: { [pathName: string]: string } = {
   brython,
-  box
+  box,
+  text3D
 };

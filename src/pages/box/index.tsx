@@ -8,9 +8,9 @@ import BoxCanvas from "./box-canvas";
 import githubSourceUrl from "../../file-github-source-url.macro";
 
 const boxCanvasSourcePath = "./box-canvas.tsx";
-const BoxCanvasSource = raw(boxCanvasSourcePath);
+const boxCanvasSource = raw(boxCanvasSourcePath);
 const boxMeshSourcePath = "./box-mesh.tsx";
-const BoxMeshSource = raw(boxMeshSourcePath);
+const boxMeshSource = raw(boxMeshSourcePath);
 
 const BoxPage: FunctionComponent = () => (
   <Fragment>
@@ -29,9 +29,9 @@ const BoxPage: FunctionComponent = () => (
       <BoxCanvas />
     </ExperimentFrame>
     <p>BoxCanvas.tsx</p>
-    <SourceCode language="tsx" code={BoxCanvasSource} />
+    <SourceCode language="tsx" code={boxCanvasSource} />
     <p>BoxMesh.tsx</p>
-    <SourceCode language="tsx" code={BoxMeshSource} />
+    <SourceCode language="tsx" code={boxMeshSource} />
     <p>
       Here's the <Link href={githubSourceUrl}>full source code</Link> of this
       experiment
