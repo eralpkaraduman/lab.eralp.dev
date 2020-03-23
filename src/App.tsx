@@ -9,17 +9,17 @@ const HomePage = React.lazy(() => import("./pages/home"));
 const NotFound = React.lazy(() => import("./pages/not-found"));
 const BrythonPage = React.lazy(() => import("./pages/brython"));
 const BoxPage = React.lazy(() => import("./pages/box"));
-const Text3DPage = React.lazy(() => import("./pages/text-3d"));
+const Clock3DPage = React.lazy(() => import("./pages/clock-3d"));
 const VirusPage = React.lazy(() => import("./pages/virus"));
 
 const App: FunctionComponent = () => (
   <Layout>
     <Suspense fallback={<h1>Loading...</h1>}>
       <Switch>
-        <Route path={Paths.brython} exact component={BrythonPage} />
-        <Route path={Paths.box} exact component={BoxPage} />
-        <Route path={Paths.virus} exact component={VirusPage} />
-        <Route path={Paths.text3D} exact component={Text3DPage} />
+        <Route path={Paths.Brython} exact component={BrythonPage} />
+        <Route path={Paths.Box} exact component={BoxPage} />
+        <Route path={Paths.Virus} exact component={VirusPage} />
+        <Route path={Paths.Clock3D} exact component={Clock3DPage} />
         <Route path="/" exact component={HomePage} />
         <Route path="*" component={NotFound} />
       </Switch>

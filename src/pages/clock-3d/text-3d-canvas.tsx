@@ -1,7 +1,7 @@
 import React, { FunctionComponent, Fragment } from "react";
 import { Canvas, useLoader } from "react-three-fiber";
-import Text3dObject from "./text-3d-object";
 import * as THREE from "three";
+import Text3dObject from "./text-3d-object";
 import Clock from "./clock";
 
 const textColor1 = new THREE.Color(0x0000ff);

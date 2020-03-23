@@ -16,7 +16,7 @@ const text3dObjectSource = raw(text3dObjectPath);
 const Text3D: FunctionComponent = () => {
   return (
     <Fragment>
-      <h1>Text 3D</h1>
+      <h1>Clock 3D</h1>
       <p>
         Demo of displaying live clock as 3D text and loading custom fonts using
         WebGL through{" "}

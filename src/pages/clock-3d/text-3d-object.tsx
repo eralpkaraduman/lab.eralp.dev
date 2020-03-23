@@ -1,7 +1,6 @@
 import React, { useMemo, useRef, FunctionComponent } from "react";
 import { useUpdate, useFrame } from "react-three-fiber";
 import * as THREE from "three";
-import { Vector3 } from "three";
 
 type Props = {
   position: THREE.Vector3;
@@ -17,7 +16,7 @@ type Props = {
   ) => { translation?: number[]; rotation?: number[] };
 };
 
-const Text3DCanvas: FunctionComponent<Props> = ({
+const Text3DObject: FunctionComponent<Props> = ({
   position,
   rotation,
   text,
@@ -76,4 +75,4 @@ const Text3DCanvas: FunctionComponent<Props> = ({
   );
 };
 
-export default Text3DCanvas;
+export default Text3DObject;

@@ -1,10 +1,10 @@
-export const brython = "/brython";
-export const box = "/box";
-export const text3D = "/text-3d";
-export const virus = "/virus";
+export const Brython = "/brython";
+export const Box = "/box";
+export const Clock3D = "/clock-3d";
+export const Virus = "/virus";
 
 export const SidebarPaths: { [pathName: string]: string } = {
-  brython,
-  box,
-  text3D
+  Brython,
+  Box,
+  Clock3D
 };
