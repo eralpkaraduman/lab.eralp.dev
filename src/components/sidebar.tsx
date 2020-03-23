@@ -19,7 +19,7 @@ const Sidebar: FunctionComponent<Props> = ({ open }) => (
     open={open}
     sx={{
       display: [null, "block"],
-      width: 256,
+      width: "auto",
       flex: "none",
       px: 3,
       py: 0,
