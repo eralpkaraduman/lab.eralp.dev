@@ -49,6 +49,7 @@ type ClockProps = {
 
 const Clock: FunctionComponent<ClockProps> = ({ render }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+  useEffect(() => dispatch({ type: "updateTime" }), []);
   useInterval(() => {
     dispatch({ type: "updateTime" });
   }, 1000);
