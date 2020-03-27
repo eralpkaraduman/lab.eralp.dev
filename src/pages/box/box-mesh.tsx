@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from "react";
 import * as THREE from "three";
 import { useFrame } from "react-three-fiber";
+import { hex_white } from "../../colors";
 
 type Props = {
   position: THREE.Vector3;
@@ -16,7 +17,7 @@ const BoxMesh: FunctionComponent<Props> = ({ position, size }) => {
   return (
     <mesh ref={ref} position={position}>
       <boxBufferGeometry attach="geometry" args={[size, size, size]} />
-      <meshStandardMaterial color={0xffffff} attach="material" />
+      <meshStandardMaterial color={hex_white} attach="material" />
     </mesh>
   );
 };

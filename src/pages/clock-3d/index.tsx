@@ -2,16 +2,14 @@
 import { jsx, Link } from "theme-ui";
 import { FunctionComponent, Fragment } from "react";
 import ExperimentFrame from "../../components/experiment-frame";
-import Text3DCanvas from "./text-3d-canvas";
 import SourceCode from "../../components/source-code";
 import raw from "raw.macro";
 import githubSourceUrl from "../../file-github-source-url.macro";
+import ClockCanvas from "./clock-canvas";
 
-const text3dCanvasPath = "./text-3d-canvas.tsx";
-const text3dCanvasSource = raw(text3dCanvasPath);
-
-const text3dObjectPath = "./text-3d-object.tsx";
-const text3dObjectSource = raw(text3dObjectPath);
+const clockCanvasSource = raw("./clock-canvas.tsx");
+const digitMeshSource = raw("./digit-mesh.tsx");
+const digitPairSource = raw("./digit-pair.tsx");
 
 const Text3D: FunctionComponent = () => {
   return (
@@ -28,12 +26,14 @@ const Text3D: FunctionComponent = () => {
         web and react-native.
       </p>
       <ExperimentFrame width={300} height={150}>
-        <Text3DCanvas />
+        <ClockCanvas />
       </ExperimentFrame>
-      <p>Text3DCanvas.tsx</p>
-      <SourceCode lineNumbersEnabled language="tsx" code={text3dCanvasSource} />
-      <p>Text3DObject.tsx</p>
-      <SourceCode lineNumbersEnabled language="tsx" code={text3dObjectSource} />
+      <p>clock-canvas.tsx</p>
+      <SourceCode lineNumbersEnabled language="tsx" code={clockCanvasSource} />
+      <p>digit-pair.tsx</p>
+      <SourceCode lineNumbersEnabled language="tsx" code={digitPairSource} />
+      <p>digit-mesh.tsx</p>
+      <SourceCode lineNumbersEnabled language="tsx" code={digitMeshSource} />
       <p>
         Here's the <Link href={githubSourceUrl}>full source code</Link> of this
         experiment
