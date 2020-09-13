@@ -16,6 +16,7 @@
     "@types/theme-ui": "^0.3.6",
     "@types/three": "^0.103.2",
     "babel-plugin-macros": "^2.8.0",
+    "lerp": "^1.0.3",
     "prism-react-renderer": "^1.1.1",
     "raw.macro": "^0.4.2",
     "react": "^16.13.1",
