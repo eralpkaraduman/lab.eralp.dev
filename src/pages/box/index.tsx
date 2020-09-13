@@ -7,10 +7,8 @@ import SourceCode from "../../components/source-code";
 import BoxCanvas from "./box-canvas";
 import githubSourceUrl from "../../file-github-source-url.macro";
 
-const boxCanvasSourcePath = "./box-canvas.tsx";
-const boxCanvasSource = raw(boxCanvasSourcePath);
-const boxMeshSourcePath = "./box-mesh.tsx";
-const boxMeshSource = raw(boxMeshSourcePath);
+const boxCanvasSource = raw("./box-canvas.tsx");
+const boxMeshSource = raw("./box-mesh.tsx");
 
 const BoxPage: FunctionComponent = () => (
   <Fragment>

@@ -41,7 +41,7 @@ const DigitMesh: FunctionComponent<Props> = ({
     mesh => {
       mesh.geometry.computeBoundingBox();
       const boundingBoxSize = new THREE.Vector3();
-      mesh.geometry.boundingBox.getSize(boundingBoxSize);
+      mesh.geometry.boundingBox!.getSize(boundingBoxSize);
       switch (align) {
         case "left":
           mesh.position.x = -boundingBoxSize.x - kerningOffset;
