@@ -1,4 +1,3 @@
-// @ts-nocheck
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { FunctionComponent } from "react";
