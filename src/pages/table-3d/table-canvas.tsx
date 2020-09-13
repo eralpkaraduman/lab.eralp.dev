@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React, { FunctionComponent, Suspense, useRef } from "react";
 import { Canvas, Dom, useFrame } from "react-three-fiber";
-import lerp from 'lerp'
 import Scene from './scene-gltf'
 
 function Rig({ children }) {
