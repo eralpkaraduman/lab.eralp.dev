@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { FunctionComponent, Suspense, useRef } from "react";
 import { Canvas, Dom, useFrame } from "react-three-fiber";
-import Scene from './scene-gltf'
+import Scene from './room-gltf'
 
 function Rig({ children }) {
 
@@ -16,10 +16,10 @@ function Rig({ children }) {
   )
 }
 
-const Table3DCanvas: FunctionComponent = () => {
+const Room3DCanvas: FunctionComponent = () => {
   return (
     <Canvas camera={{ position: [5, 5, -10], fov: 20 }}>
-      <ambientLight color={0xffffff} />
+      <ambientLight color={0xffffff} castShadow intensity={1.4} />
       <Suspense fallback={<Dom center>loading ...</Dom>}>
         <Rig>
           <Scene />
@@ -29,4 +29,4 @@ const Table3DCanvas: FunctionComponent = () => {
   );
 };
 
-export default Table3DCanvas;
+export default Room3DCanvas;

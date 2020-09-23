@@ -9,22 +9,21 @@ import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader'
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube001: THREE.Mesh
+    Desk: THREE.Mesh
+    Legs: THREE.Mesh
   }
-  materials: {}
+  materials: {
+    VertexColorMaterial: THREE.MeshStandardMaterial
+  }
 }
 
 export default function Model(props: JSX.IntrinsicElements['group']) {
   const group = useRef<THREE.Group>()
-  const { nodes, } = useLoader<GLTFResult>(GLTFLoader, '/models/table-3d/scene.gltf')
-  const material = new THREE.MeshStandardMaterial({
-    roughness: 1.0,
-    metalness: 0.0,
-    vertexColors: true,
-  });
+  const { nodes, materials } = useLoader<GLTFResult>(GLTFLoader, '/models/room-3d/room.gltf')
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh material={material} geometry={nodes.Cube001.geometry} />
+      <mesh material={materials.VertexColorMaterial} geometry={nodes.Desk.geometry} />
+      <mesh material={materials.VertexColorMaterial} geometry={nodes.Legs.geometry} />
     </group>
   )
 }

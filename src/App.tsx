@@ -10,7 +10,7 @@ const NotFound = React.lazy(() => import("./pages/not-found"));
 const BrythonPage = React.lazy(() => import("./pages/brython"));
 const BoxPage = React.lazy(() => import("./pages/box"));
 const Clock3DPage = React.lazy(() => import("./pages/clock-3d"));
-const Table3DPage = React.lazy(() => import("./pages/table-3d"));
+const Room3DPage = React.lazy(() => import("./pages/room-3d"));
 const VirusPage = React.lazy(() => import("./pages/virus"));
 
 const App: FunctionComponent = () => (
@@ -21,7 +21,7 @@ const App: FunctionComponent = () => (
         <Route path={Paths.Box} exact component={BoxPage} />
         <Route path={Paths.Virus} exact component={VirusPage} />
         <Route path={Paths.Clock3D} exact component={Clock3DPage} />
-        <Route path={Paths.Table3D} exact component={Table3DPage} />
+        <Route path={Paths.Room3D} exact component={Room3DPage} />
         <Route path="/" exact component={HomePage} />
         <Route path="*" component={NotFound} />
       </Switch>
