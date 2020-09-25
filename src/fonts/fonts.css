@@ -1,4 +1,5 @@
 @font-face {
-    font-family: 'JetBrainsMono';
-    src: local("JetBrainsMono"), url(./JetBrainsMono-Regular.ttf) format("truetype");
+  font-family: "Fira Code";
+  src: local("Fira Code"),
+    url(./FiraCode-VariableFont_wght.ttf) format("truetype");
 }

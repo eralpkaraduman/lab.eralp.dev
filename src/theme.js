@@ -3,12 +3,12 @@ export default {
   ...theme,
   colors: {
     ...theme.colors,
-    background: "#121212"
+    background: "#121212",
   },
   fonts: {
-    body: "JetBrainsMono, sans-serif",
-    heading: "JetBrainsMono, sans-serif",
-    monospace: "JetBrainsMono, monospace, sans-serif"
+    body: "Fira Code, sans-serif",
+    heading: "Fira Code, sans-serif",
+    monospace: "Fira Code, monospace, sans-serif",
   },
   links: {
     ...theme.links,
@@ -17,16 +17,16 @@ export default {
       color: "inherit",
       textDecoration: "none",
       ":hover,:focus": {
-        color: "primary"
-      }
+        color: "primary",
+      },
     },
     navActive: {
       fontWeight: "bold",
       color: "purple",
       textDecoration: "none",
       ":hover,:focus": {
-        color: "primary"
-      }
-    }
-  }
+        color: "primary",
+      },
+    },
+  },
 };
