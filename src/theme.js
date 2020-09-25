@@ -10,6 +10,18 @@ export default {
     heading: "Fira Code, sans-serif",
     monospace: "Fira Code, monospace, sans-serif",
   },
+  buttons: {
+    ...theme.buttons,
+    expermientExpand: {
+      cursor: "pointer",
+      backgroundColor: "unset",
+      color: `#ffffffff`,
+      padding: 0,
+      margin: 0,
+      lineHeight: 0,
+      outline: "none",
+    },
+  },
   links: {
     ...theme.links,
     nav: {
