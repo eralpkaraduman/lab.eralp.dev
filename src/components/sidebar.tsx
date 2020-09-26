@@ -7,9 +7,9 @@ import { SidebarPaths } from "../paths";
 
 type LinkType = { title: string; path: string };
 
-const links: LinkType[] = Object.keys(SidebarPaths).map(pathName => ({
+const links: LinkType[] = Object.keys(SidebarPaths).map((pathName) => ({
   title: pathName,
-  path: SidebarPaths[pathName]
+  path: SidebarPaths[pathName],
 }));
 
 type Props = { open: boolean };
@@ -17,17 +17,18 @@ type Props = { open: boolean };
 const Sidebar: FunctionComponent<Props> = ({ open }) => (
   <Sidenav
     open={open}
+    id="sidebar"
     sx={{
       display: [null, "block"],
       width: "auto",
       flex: "none",
       px: 3,
       py: 0,
-      mt: [64, 0]
+      mt: [64, 0],
     }}
   >
     <ul sx={{ listStyle: "none", p: 3, m: 0 }}>
-      {links.map(link => (
+      {links.map((link) => (
         <SidebarLink key={link.path} to={link.path}>
           {link.title}
         </SidebarLink>

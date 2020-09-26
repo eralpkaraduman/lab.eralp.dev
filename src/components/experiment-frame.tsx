@@ -43,6 +43,7 @@ const ExperimentFrame: FunctionComponent<Props> = ({
               margin: 0,
               padding: 0,
               border: "unset",
+              borderRadius: "unset",
             }
           : {}),
       }}
@@ -70,6 +71,11 @@ const ExperimentFrame: FunctionComponent<Props> = ({
         <Global
           styles={css`
             #content > *:not(.experiment-frame-expanded) {
+              display: none;
+              padding: 0;
+              margin: 0;
+            }
+            #sidebar {
               display: none;
             }
           `}
