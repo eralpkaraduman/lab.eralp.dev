@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx, Button } from "theme-ui";
 import { Global, css } from "@emotion/core";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import ExpandIcon from "../svg/fullscreen-white-18dp.svg";
 import MinimizeIcon from "../svg/fullscreen_exit-white-18dp.svg";
 
@@ -16,8 +16,14 @@ const ExperimentFrame: FunctionComponent<Props> = ({
   children,
 }) => {
   const [expanded, setExpanded] = useState(false);
+  useEffect(() => {
+    if (expanded) {
+      window.scrollTo(0, 0);
+    }
+  }, [expanded]);
   return (
     <div
+      className={expanded ? "experiment-frame-expanded" : "experiment-frame"}
       sx={{
         width: width,
         height: height,
@@ -30,10 +36,13 @@ const ExperimentFrame: FunctionComponent<Props> = ({
           ? {
               position: "absolute",
               zIndex: 100,
-              top: window.pageYOffset,
+              top: 0,
               left: 0,
               width: "100%",
               height: "100%",
+              margin: 0,
+              padding: 0,
+              border: "unset",
             }
           : {}),
       }}
@@ -43,16 +52,16 @@ const ExperimentFrame: FunctionComponent<Props> = ({
         variant="expermientExpand"
         sx={{
           position: "absolute",
-          top: `0.5em`,
-          left: `0.5em`,
-          zIndex: 101,
+          bottom: `0.5em`,
+          right: `0.5em`,
+          zIndex: expanded ? 101 : "auto",
         }}
         onClick={() => setExpanded((expanded) => !expanded)}
       >
         <img
           alt={expanded ? "minimize" : "expand"}
           sx={{
-            width: "2em",
+            height: expanded ? "6em" : "2em",
           }}
           src={expanded ? MinimizeIcon : ExpandIcon}
         />
@@ -60,8 +69,8 @@ const ExperimentFrame: FunctionComponent<Props> = ({
       {expanded && (
         <Global
           styles={css`
-            * {
-              overflow: hidden;
+            #content > *:not(.experiment-frame-expanded) {
+              display: none;
             }
           `}
         />
