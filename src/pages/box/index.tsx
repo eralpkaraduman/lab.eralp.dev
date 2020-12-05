@@ -14,7 +14,7 @@ const BoxPage: FunctionComponent = () => (
   <Fragment>
     <h1>Box</h1>
     <p>
-      You should see a rotating 3D cube animation below. This is ruinning on
+      You should see a rotating 3D cube animation below. This is running on
       WebGL through{" "}
       <Link href="https://github.com/react-spring/react-three-fiber">
         react-three-fiber
